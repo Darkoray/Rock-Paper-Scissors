@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body class="min-h-screen bg-bg font-display">
+    <div class="move_select">
+      <h1 class="text-3xl heading">
+        <span>Rock</span> <span>Paper</span> <span>Scissors</span> <span>Game</span>
+      </h1>
+
+      <div class="moves">
+        <button class="btn rock" data-move="rock">Rock 👊</button>
+        <button class="btn paper" data-move="paper">Paper 🖐️</button>
+        <button class="btn scissors" data-move="scissors">Scissors ✌️</button>
+      </div>
+
+      <div class="controls">
+        <span class="hidden result">System played Blank. You blank...</span>
+        <button class="hidden reset">Play Again!</button>
+      </div>
+    </div>
+  </body>
+</html>

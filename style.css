@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #1e1e2f;
+  font-family: 'Luckiest Guy', cursive;
+  color: #f0f0f3;
+}
+
+body,
+.move_select,
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.move_select {
+  gap: 10px;
+  padding: 50px;
+}
+
+.heading {
+  font-weight: normal;
+  font-size: 44px;
+  -webkit-text-stroke: #00193f;
+
+  span:nth-child(1) {
+    color: #d32f2f;
+  }
+  span:nth-child(2) {
+    color: #1976d2;
+  }
+  span:nth-child(3) {
+    color: #388e3c;
+  }
+  span:nth-child(4) {
+    color: #fbc02d;
+  }
+}
+
+.moves {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 5px 7px;
+  background-color: #2c2c3c;
+  border: 2px solid #00193f;
+  border-radius: 7px;
+}
+
+.controls {
+  min-height: 80px;
+}
+
+.reset,
+.result {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
