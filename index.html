@@ -17,21 +17,23 @@
 
     <title>Rock Paper Scissors</title>
   </head>
-  <body class="min-h-screen bg-bg font-display">
-    <div class="move_select">
-      <h1 class="text-3xl heading">
+  <body class="container">
+    <div class="move_select grid">
+      <h1 class="heading">
         <span>Rock</span> <span>Paper</span> <span>Scissors</span> <span>Game</span>
       </h1>
 
       <div class="moves">
-        <button class="btn rock" data-move="rock">Rock 👊</button>
-        <button class="btn paper" data-move="paper">Paper 🖐️</button>
-        <button class="btn scissors" data-move="scissors">Scissors ✌️</button>
+        <button class="btn btn-style rock" data-move="rock">Rock 👊</button>
+        <button class="btn btn-style paper" data-move="paper">Paper 🖐️</button>
+        <button class="btn btn-style scissors" data-move="scissors">
+          Scissors ✌️
+        </button>
       </div>
 
-      <div class="controls">
-        <span class="hidden result">System played Blank. You blank...</span>
-        <button class="hidden reset">Play Again!</button>
+      <div class="controls container">
+        <span class="hidden result"></span>
+        <button class="hidden btn reset">Play Again!</button>
       </div>
     </div>
   </body>
