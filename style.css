@@ -36,31 +36,33 @@
   --color-green: #388e3c;
   --color-yellow: #fbc02d;
   --color-white: #e0e0e0;
-
+  --color-black: #121212;
   --color-blue-100: #00193f;
   --color-blue-200: #1e1e2f;
 }
+
+/* # ========================= GLOBAL ============================ # */
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
   height: 100vh;
-  /* background-color: var(--color-blue-200); */
-  background: linear-gradient(135deg, #121212, #1e1e2f);
+  background: linear-gradient(135deg, var(--color-black), var(--color-blue-200));
   font-family: 'Luckiest Guy', cursive;
-  color: #f0f0f3;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 .grid {
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-rows: 1fr 1fr 1.5fr;
-  grid-template-areas: 'move_select' 'moves' 'controls';
+  grid-template-rows: 1fr 2fr;
 }
 
 .container {
@@ -71,55 +73,24 @@ body {
 }
 
 .move_select {
-  grid-area: move_select;
-
   gap: var(--space-24);
 }
 
-.moves {
-  grid-area: moves;
+/* # ======================== CONTAINERS ============================= # */
 
+.moves {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--space-16);
-
-  button:nth-child(1) {
-    background-color: var(--color-red);
-
-    &:hover {
-      box-shadow:
-        3px 3px 0 var(--color-yellow),
-        6px 6px 0 var(--color-green),
-        9px 9px 0 var(--color-blue);
-    }
-  }
-  button:nth-child(2) {
-    background-color: var(--color-blue);
-
-    &:hover {
-      box-shadow:
-        3px 3px 0 var(--color-green),
-        6px 6px 0 var(--color-yellow),
-        9px 9px 0 var(--color-red);
-    }
-  }
-  button:nth-child(3) {
-    background-color: var(--color-green);
-
-    &:hover {
-      box-shadow:
-        3px 3px 0 var(--color-yellow),
-        6px 6px 0 var(--color-red),
-        9px 9px 0 var(--color-blue);
-    }
-  }
+  color: var(--color-white);
 }
 
 .controls {
-  grid-area: controls;
   gap: var(--space-16);
 }
+
+/* # ========================= HEADING ============================ # */
 
 @keyframes colorLoop {
   0% {
@@ -141,7 +112,6 @@ body {
 
 .heading {
   font-weight: normal;
-  text-align: center;
   font-size: var(--fs-44);
 
   span {
@@ -159,61 +129,251 @@ body {
   }
 }
 
+/* # ======================== DIVS ============================= # */
+
+.result {
+  font-size: var(--fs-20);
+  color: var(--color-white);
+}
+
+.reset {
+  color: var(--color-black);
+  background-color: var(--color-yellow);
+}
+
+.moves > button:nth-child(1) {
+  background-color: var(--color-red);
+
+  &:hover {
+    box-shadow:
+      3px 3px 0 var(--color-yellow),
+      6px 6px 0 var(--color-green),
+      9px 9px 0 var(--color-blue);
+  }
+}
+.moves > button:nth-child(2) {
+  background-color: var(--color-blue);
+
+  &:hover {
+    box-shadow:
+      3px 3px 0 var(--color-green),
+      6px 6px 0 var(--color-yellow),
+      9px 9px 0 var(--color-red);
+  }
+}
+.moves > button:nth-child(3) {
+  background-color: var(--color-green);
+
+  &:hover {
+    box-shadow:
+      3px 3px 0 var(--color-yellow),
+      6px 6px 0 var(--color-red),
+      9px 9px 0 var(--color-blue);
+  }
+}
+
+/* # ======================== BUTTONS ============================ # */
+
 .btn {
   font-family: inherit;
   font-size: 1.2rem;
-  letter-spacing: 2px;
+  letter-spacing: inherit;
   margin: var(--space-08);
   padding: 0.7rem 1.5rem;
   border-radius: 50px;
-  background-color: var(--ui-color);
-  color: var(--color-white);
-  background-color: black;
+  color: inherit;
+
   cursor: pointer;
   border: none;
   transition:
     transform 0.2s ease-in-out,
     box-shadow 0.35s ease;
+}
 
-  transform: translate(-6px, 0);
-
-  &:active {
-    transform: scale(1) translate(-8px, 0);
+.btn-style {
+  &:hover {
+    transform: scale(1.08) translate(-9px, -6px);
   }
 
   &:hover&:active {
+    transform: scale(1) translate(0);
     box-shadow: none;
-    transform: scale(1) translate(-6px, 0);
   }
 }
 
-.btn-style:hover {
-  transform: scale(1) translate(-16px, -8px);
-}
-
-.reset,
-.result {
-  opacity: 1;
-  visibility: visible;
-}
-
-.reset {
-  color: black;
-  background-color: var(--color-yellow);
-
-  transform: scale(1.08) translate(-16px, -8px);
+.btn-transition {
+  transform: scale(1.08) translate(-9px, -6px);
   box-shadow:
     3px 3px 0 var(--color-red),
     6px 6px 0 var(--color-blue),
     9px 9px 0 var(--color-green);
+
+  &:hover&:active {
+    transform: scale(1) translate(0);
+    box-shadow: none;
+  }
 }
 
-.result {
-  font-size: var(--fs-20);
-}
+/* # ======================= JAVASCRIPT ============================== # */
 
 .hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
 }
+
+/* # =============== Responsive styles (Gen by claude) =============== # */
+/* #region */
+
+/* MOBILE DEVICES - Portrait phones */
+@media (max-width: 480px) {
+  .heading {
+    font-size: var(--fs-30);
+    padding: 0 var(--space-16);
+  }
+
+  .moves {
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .btn {
+    font-size: var(--fs-16);
+    padding: var(--space-12) var(--space-24);
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .grid {
+    grid-template-rows: auto 1fr;
+    padding: var(--space-16);
+    gap: var(--space-24);
+  }
+
+  .move_select {
+    gap: var(--space-16);
+  }
+
+  .controls {
+    gap: var(--space-12);
+  }
+
+  .result {
+    font-size: var(--fs-16);
+    text-align: center;
+    padding: 0 var(--space-16);
+  }
+}
+
+/* MOBILE DEVICES - Landscape phones */
+@media (min-width: 481px) and (max-width: 767px) {
+  .heading {
+    font-size: var(--fs-36);
+  }
+
+  .moves {
+    gap: var(--space-12);
+  }
+
+  .btn {
+    font-size: var(--fs-18);
+    padding: var(--space-12) var(--space-24);
+  }
+
+  .grid {
+    padding: var(--space-24);
+  }
+
+  .result {
+    font-size: var(--fs-18);
+  }
+}
+
+/* TABLETS - Portrait */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heading {
+    font-size: var(--fs-44);
+  }
+
+  .moves {
+    gap: var(--space-16);
+  }
+
+  .btn {
+    padding: var(--space-16) var(--space-32);
+  }
+
+  .grid {
+    padding: var(--space-32);
+  }
+}
+
+/* SMALL MOBILE - Extra small devices */
+@media (max-width: 375px) {
+  .heading {
+    font-size: var(--fs-24);
+    letter-spacing: 1px;
+  }
+
+  .btn {
+    font-size: var(--fs-14);
+    padding: var(--space-08) var(--space-16);
+  }
+
+  .result {
+    font-size: var(--fs-14);
+  }
+
+  body {
+    letter-spacing: 1px;
+  }
+}
+
+/* TOUCH DEVICES - Remove hover effects */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    transform: translate(-6px, 0);
+    box-shadow: none;
+  }
+
+  .moves button:nth-child(1):hover,
+  .moves button:nth-child(2):hover,
+  .moves button:nth-child(3):hover {
+    box-shadow: none;
+  }
+
+  .btn-style:hover {
+    transform: translate(-6px, 0);
+  }
+
+  .reset-transition:hover {
+    transform: scale(1.08) translate(-12px, -6px);
+  }
+}
+
+/* LANDSCAPE ORIENTATION */
+@media (max-width: 767px) and (orientation: landscape) {
+  .grid {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: var(--fs-24);
+    margin-bottom: var(--space-08);
+  }
+
+  .moves {
+    flex-direction: row;
+    gap: var(--space-08);
+  }
+
+  .btn {
+    padding: var(--space-08) var(--space-16);
+    font-size: var(--fs-14);
+  }
+
+  .move_select,
+  .controls {
+    gap: var(--space-08);
+  }
+}
+/* #endregion */
